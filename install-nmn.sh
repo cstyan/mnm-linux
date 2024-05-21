@@ -45,7 +45,7 @@ install_proton_source() {
     mkdir $HOME/Games/ # Make Directory
     mkdir $HOME/Games/"Monsters & Memories"/ # Make Directory
     cd $HOME/Games/"Monsters & Memories"/ # Change Directory
-    wget --secure-protocol=TLSv1_3 --retry-connrefused --waitretry=3 -O "Monsters & Memories.zip" "https://account.monstersandmemories.com/*/mnmlauncher.zip"
+    wget --secure-protocol=TLSv1_3 --retry-connrefused --waitretry=3 "https://account.monstersandmemories.com/*/mnmlauncher.zip"
     unzip "mnmlauncher.zip" # Unzip Launcher
     rm "mnmlauncher.zip" # Remove Zipfile
 }
