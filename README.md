@@ -4,6 +4,8 @@ Native Linux setup and installation instructions for the game Monsters & Memorie
 
 Note that so far we have only tested getting the launcher to run to the point of being able to login and create a characer. Neither of us were around for earlier playtests, so this will likely be updated based on the upcomming June stress/playtests.
 
+![Launcher running on Arch](launcher-arch.png "Launcher running on Arch")
+
 # General Requirements
 
 ## System Requirements 
