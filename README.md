@@ -14,8 +14,8 @@ Note that so far we have only tested getting the launcher to run to the point of
 - Any GPU or integrated GPU that supports DirectX 11
 
 ## Distribution Requirements
-- Linux kernel 6.1 LTS or newer.
-- A desktop environmen with up to date videocard drivers.
+- A Linux kernel that is version 6.1 or newer.
+- A desktop environment with up to date videocard drivers.
 
 # Required Packages
 
