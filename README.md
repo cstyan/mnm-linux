@@ -14,8 +14,8 @@ Note that so far we have only tested getting the launcher to run to the point of
 - Any GPU or integrated GPU that supports DirectX 11
 
 ## Distribution Requirements
-- Kernel 6.1 LTS or Newer
-- GUI / Desktop Environment
+- Linux kernel 6.1 LTS or newer.
+- A desktop environmen with up to date videocard drivers.
 
 # Required Packages
 
@@ -30,6 +30,10 @@ After that you want to ensure you have the following:
 - [32bit OpenGL driver](https://wiki.archlinux.org/title/Xorg#Driver_installation), check the table on this page for the best option for your GPU (for me this was `xf86-video-amdgpu`)
 - [Vulkan](https://wiki.archlinux.org/title/Vulkan#Installation), again check the page for which exact package(s) are options for your GPU (I used [vulkan-radeon](https://archlinux.org/packages/?name=vulkan-radeon))
 - [proton](https://aur.archlinux.org/packages/proton), you can use the AUR package or alternatively use our setup script to get the latest release from proton's git repo. If you use the AUR pacakge you need to configure the `mnmlauncher.exe` in Steam's compatability settings to use `proton (Unsupported AUR package [native])` (which I have tested, and still works).
+
+## Ubuntu
+
+Ubuntu's repositories are split into 4 different [categories](https://help.ubuntu.com/community/Repositories). Main, Restricted, Universe, and Multiverse. Rather than enabling the other categories we will be using the [Snap](https://snapcraft.io/) package manager to install Steam.
 
 # Install script
 

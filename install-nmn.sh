@@ -12,7 +12,7 @@ if [ "$ANSWER" == "y" ]; then
     echo "Have you updated your /etc/pacman.conf to include the mirrorlist for multilib?"
     read ANSWER
     if [ "$ANSWER" == "y" ]; then 
-        sudo pacman -Syu steam # Download Steam for Arch & Manjaro Linux
+        sudo pacman -Syu steam # Steam download for Arch & Manjaro Linux
     else
         echo "You must have a mirrorlist config for multilib for steam to be installed properly, see: https://wiki.archlinux.org/title/steam"
         exit 1
@@ -21,13 +21,14 @@ elif [ "$ANSWER" == "n" ]; then
     echo "Are you using an Debian based Linux distribution? [y/n]"
     read ANSWER
     if [ "$ANSWER" == "y" ]; then 
-        sudo apt-get update
-        sudo apt-get install -y steam # Download Steam for Debian, Ubuntu, and Mint Linux
+        sudo apt-get update # Sync Repository	
+		sudo snap install steam # Steam download for Ubuntu	
+        sudo apt-get install -y steam # Steam download for Debian and Mint Linux
     elif [ "$ANSWER" == "n" ]; then
         echo "Are you using a Fedora based Linux distribution? [y/n]"
         read ANSWER
         if [ "$ANSWER" == "y" ]; then 
-            sudo dnf install -y steam # Download Steam for Fedora Linux
+            sudo dnf install -y steam # Steam download for Fedora Linux
         fi
     fi
 fi
@@ -45,11 +46,11 @@ install_proton_source() {
     mkdir $HOME/Games/ # Make Directory
     mkdir $HOME/Games/"Monsters & Memories"/ # Make Directory
     cd $HOME/Games/"Monsters & Memories"/ # Change Directory
-    wget --secure-protocol=TLSv1_3 --retry-connrefused --waitretry=3 "https://account.monstersandmemories.com/*/mnmlauncher.zip"
-    unzip "mnmlauncher.zip" # Unzip Launcher
-    rm "mnmlauncher.zip" # Remove Zipfile
+    wget --secure-protocol=TLSv1_3 --retry-connrefused --waitretry=3 "http://files.monstersandmemories.com/mnmlauncher.full.2023.12.09.zip"
+    unzip "mnmlauncher.full.2023.12.09.zip" # Unzip Launcher
+	mv "MnMLauncher.exe" "Monsters & Memories.exe" # Renames Exe
+    rm "mnmlauncher.full.2023.12.09.zip" # Remove Zipfile
 }
-
 
 if [ "$ARCH" = true]; then
     echo "Would you like to install the proton AUR package rather than installing proton from source?"
@@ -66,6 +67,13 @@ fi
 
 # 4. Login to Steam and Select Proton-GE for Monsters & Memories
 steam & # Starts Steam in the background
-echo -e "\n"'Please login to Steam and click the top "Games" tab. From there click "Add a Non-Steam Game to My Library" and naviagte to the download location of mnmlauncher.exe. Once added go to the Library tab and right click the game and select properties. 
-
-From there go to "Compatibility" and check the "Force the use of a specofoc Steam Play compatibility tools" box. From there Select the Proton version that starts with "GE". It should look something like "GE-Proton9-5".'
+RED='\033[0;31m'
+GREEN='\033[0;32m' 
+BLUE='\033[0;34m'
+NORMAL='\033[0m'
+echo -e "\n"
+echo -e ${BLUE}'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'${NORMAL}
+echo -e ${GREEN}'Please login to '${RED}'Steam'${GREEN}' and click the top '${RED}'"Games"'${GREEN}' tab'."\n"
+echo -e 'From there click '${RED}'"Add a Non-Steam Game to My Library"'${GREEN}' and naviagte to the download location of '${RED}'"Monsters & Memories.exe"'${GREEN}' to add it. Once added go to the '${RED}'"Library"'${GREEN}' tab and right click the game and select '${RED}'"Properties"'${GREEN}'.'"\n"
+echo -e 'Next go to '${RED}'"Compatibility"'${GREEN}' and click the '${RED}'"Force the use of a specific Steam Play compatibility tool"'${GREEN}' box. From there Select a Proton version that starts with '${RED}'"GE"'${GREEN}'. It should look similar to this, '${RED}'"GE-Proton9-5"'${GREEN}'.'
+echo -e ${BLUE}'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'${NORMAL}
