@@ -9,9 +9,9 @@ Note that so far we have only tested getting the launcher to run to the point of
 # General Requirements
 
 ## System Requirements 
-- Modern CPU (2017+)
-- 16GB of memory DDR4 or higher (2133MT+).
-- Any GPU or integrated GPU that supports DirectX 11
+- A modern 4 core processor. 
+- 16GB of Memory.
+- Any GPU or APU that supports DirectX 11.
 
 ## Distribution Requirements
 - A Linux kernel that is version 6.1 or newer.
