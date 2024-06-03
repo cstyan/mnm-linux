@@ -31,10 +31,6 @@ After that you want to ensure you have the following:
 - [Vulkan](https://wiki.archlinux.org/title/Vulkan#Installation), again check the page for which exact package(s) are options for your GPU (I used [vulkan-radeon](https://archlinux.org/packages/?name=vulkan-radeon))
 - [proton](https://aur.archlinux.org/packages/proton), you can use the AUR package or alternatively use our setup script to get the latest release from proton's git repo. If you use the AUR pacakge you need to configure the `mnmlauncher.exe` in Steam's compatability settings to use `proton (Unsupported AUR package [native])` (which I have tested, and still works).
 
-## Ubuntu
-
-Ubuntu's repositories are split into 4 different [categories](https://help.ubuntu.com/community/Repositories). Main, Restricted, Universe, and Multiverse. Rather than enabling the other categories we will be using the [Snap](https://snapcraft.io/) package manager to install Steam.
-
 # Install script
 
 The install script will prompt you a few times for your distribution info and some other questions, and install some relevant packages + start Steam. Note that currently in the script you need to modify the download link line with your account tag, which you can find by logging into `https://account.monstersandmemories.com`.
