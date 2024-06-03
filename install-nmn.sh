@@ -34,7 +34,7 @@ elif [ "$ANSWER" == "n" ]; then
         read ANSWER
         if [ "$ANSWER" == "y" ]; then 
             sudo dnf upgrade --refresh # Software Upgrade
-			sudo dnf install -y https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm # Enable Non-Free Repository
+            sudo dnf install -y https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm # Enable Non-Free Repository
             sudo dnf install -y steam # Steam download for Fedora Linux
         fi
     fi
