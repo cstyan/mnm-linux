@@ -27,8 +27,8 @@ elif [ "$ANSWER" == "n" ]; then
         sudo apt-get install -y flatpak # Download Flatpak
         sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo # Adding Repository
         sudo flatpak install -y flathub com.valvesoftware.Steam # Steam Download Using Flatpak
-		echo -e ${RED}"Steam will not appear on your system until after a reboot."${NORMAL}
-		sleep 1
+        echo -e ${RED}"Steam will not appear on your system until after a reboot."${NORMAL}
+        sleep 1
     elif [ "$ANSWER" == "n" ]; then
         echo "Are you using Fedora Linux? [y/n]"
         read ANSWER
