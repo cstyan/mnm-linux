@@ -21,13 +21,20 @@ elif [ "$ANSWER" == "n" ]; then
     echo "Are you using an Debian based Linux distribution? [y/n]"
     read ANSWER
     if [ "$ANSWER" == "y" ]; then 
+        RED='\033[0;31m'
+        NORMAL='\033[0m'
         sudo apt-get update # Sync Repository	
-        sudo snap install steam # Steam download for Ubuntu	
-        sudo apt-get install -y steam # Steam download for Debian and Mint Linux
+        sudo apt-get install -y flatpak # Download Flatpak
+        sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo # Adding Repository
+        sudo flatpak install -y flathub com.valvesoftware.Steam # Steam Download Using Flatpak
+		echo -e ${RED}"Steam will not appear on your system until after a reboot."${NORMAL}
+		sleep 1
     elif [ "$ANSWER" == "n" ]; then
-        echo "Are you using a Fedora based Linux distribution? [y/n]"
+        echo "Are you using Fedora Linux? [y/n]"
         read ANSWER
         if [ "$ANSWER" == "y" ]; then 
+            sudo dnf upgrade --refresh # Software Upgrade
+			sudo dnf install -y https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm # Enable Non-Free Repository
             sudo dnf install -y steam # Steam download for Fedora Linux
         fi
     fi
@@ -48,7 +55,7 @@ install_proton_source() {
     cd $HOME/Games/"Monsters & Memories"/ # Change Directory
     wget --secure-protocol=TLSv1_3 --retry-connrefused --waitretry=3 "https://account.monstersandmemories.com/o2iwokawmedof9/mnmlauncher.zip"
     unzip "mnmlauncher.zip" # Unzip Launcher
-    mv "MnMLauncher.exe" "Monsters & Memories.exe" # Renames Exe
+	mv "MnMLauncher.exe" "Monsters & Memories.exe" # Renames Exe
     rm "mnmlauncher.zip" # Remove Zipfile
 }
 
