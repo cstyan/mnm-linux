@@ -22,7 +22,7 @@ elif [ "$ANSWER" == "n" ]; then
     read ANSWER
     if [ "$ANSWER" == "y" ]; then 
         sudo apt-get update # Sync Repository	
-		sudo snap install steam # Steam download for Ubuntu	
+        sudo snap install steam # Steam download for Ubuntu	
         sudo apt-get install -y steam # Steam download for Debian and Mint Linux
     elif [ "$ANSWER" == "n" ]; then
         echo "Are you using a Fedora based Linux distribution? [y/n]"
@@ -46,10 +46,10 @@ install_proton_source() {
     mkdir $HOME/Games/ # Make Directory
     mkdir $HOME/Games/"Monsters & Memories"/ # Make Directory
     cd $HOME/Games/"Monsters & Memories"/ # Change Directory
-    wget --secure-protocol=TLSv1_3 --retry-connrefused --waitretry=3 "http://files.monstersandmemories.com/mnmlauncher.full.2023.12.09.zip"
-    unzip "mnmlauncher.full.2023.12.09.zip" # Unzip Launcher
+    wget --secure-protocol=TLSv1_3 --retry-connrefused --waitretry=3 "https://account.monstersandmemories.com/o2iwokawmedof9/mnmlauncher.zip"
+    unzip "mnmlauncher.zip" # Unzip Launcher
 	mv "MnMLauncher.exe" "Monsters & Memories.exe" # Renames Exe
-    rm "mnmlauncher.full.2023.12.09.zip" # Remove Zipfile
+    rm "mnmlauncher.zip" # Remove Zipfile
 }
 
 if [ "$ARCH" = true]; then
